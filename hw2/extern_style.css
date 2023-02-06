@@ -1,3 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: lightblue;
+    background-color: rgba(49, 48, 99, 0.986);
+    font-family: "Audiowide", sans-serif;
+    color: aliceblue;
   }
+
+.col-1 {width: 16.67%;}
+.col-2 {width: 33.33%;}
+.col-3 {width: 50%;}
+.col-4 {width: 66.67%;}
+.col-5 {width: 83.33%;}
+.col-6 {width: 100%;}
+
+[class *="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
+
+
+.navigation {
+    background-color:rgba(254, 199, 0, 0.986); 
+    overflow: hidden;
+}
+
+.navigation a {
+    text-align: center;
+    color: rgba(49, 48, 99, 0.986);
+    font-size: 50px;
+    text-decoration: none;
+    padding: 0% 5%;
+}
+
+.navigation a:hover {
+    background-color: rgba(49, 48, 99, 0.986);
+    color: aliceblue;
+}
+
+.navigation a:active {
+    background-color:rgb(102, 20, 36);
+    color: aliceblue;
+}
+
+#activePage {
+    background-color:rgb(102, 20, 36);
+    color: aliceblue;
+}
