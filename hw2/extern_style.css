@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
     padding: 15px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
     [class*="col-"] {
       width: 100%;
     }
@@ -88,3 +89,32 @@ img {
     padding-bottom: 0%;
     text-shadow: 2px 2px rgba(254, 199, 0, 0.986);
 }
+
+.saleGames {
+    background-color: rgb(36, 36, 36);
+    display: block;
+    position: relative;
+}
+
+.buy {
+    background-color: rgba(55, 149, 29, 0.581);
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.buy a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: large;
+    padding: 10px;
+}
+
+.intro {
+    display: block;
+    position: static;
+}
+
