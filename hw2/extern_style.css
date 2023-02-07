@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 body {
@@ -94,6 +93,7 @@ img {
     background-color: rgb(36, 36, 36);
     display: block;
     position: relative;
+    overflow: hidden;
 }
 
 .buy {
@@ -102,6 +102,7 @@ img {
     position: absolute;
     bottom: 15px;
     right: 15px;
+    overflow: hidden;
 }
 
 .buy a {
@@ -116,5 +117,6 @@ img {
 .intro {
     display: block;
     position: static;
+    overflow: hidden;
 }
 
