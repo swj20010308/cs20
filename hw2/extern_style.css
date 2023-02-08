@@ -20,15 +20,10 @@ body {
     padding: 15px;
 }
 
-@media only screen and (max-width: 900px) {
-    [class*="col-"] {
-      width: 100%;
-    }
-}
-
 
 .navigation {
-    background-color:rgba(254, 199, 0, 0.986); 
+    z-index: 9999;
+    background-color:rgba(254, 199, 0, 0.849); 
     overflow: hidden;
     position: -webkit-sticky; 
     position: sticky;
@@ -80,6 +75,7 @@ img {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .logo h1 {
@@ -97,11 +93,12 @@ img {
 }
 
 .buy {
-    background-color: rgba(55, 149, 29, 0.581);
+    background-color: rgba(254, 199, 0, 0.849);
     display: block;
     position: absolute;
     bottom: 15px;
     right: 15px;
+    left: 15px;
     overflow: hidden;
 }
 
@@ -109,14 +106,181 @@ img {
     display: block;
     text-align: center;
     text-decoration: none;
-    color: aliceblue;
+    color: rgba(49, 48, 99, 0.986);
     font-size: large;
     padding: 10px;
 }
 
-.intro {
+.buy a:hover {
+    background-color: rgba(49, 48, 99, 0.986);
+    color:aliceblue;
+}
+
+.buy a:active {
+    background-color:rgb(102, 20, 36);
+    color: aliceblue;
+}
+
+.buy2 {
+    background-color: rgba(254, 199, 0, 0.849);
     display: block;
-    position: static;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
     overflow: hidden;
 }
 
+.buy2 a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(49, 48, 99, 0.986);
+    font-size: large;
+    padding: 10px;
+}
+
+.buy2 a:hover {
+    background-color: rgba(49, 48, 99, 0.986);
+    color:aliceblue;
+}
+
+.buy2 a:active {
+    background-color:rgb(102, 20, 36);
+    color: aliceblue;
+}
+
+.intro {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+}
+
+.introText {
+    display: block;
+    font-size: 15px;
+    padding-top: 5px;
+    line-height: normal;
+    
+}
+
+.intro2 {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+}
+
+.hl3 {
+    float: right;
+}
+
+.payForm {
+    
+    background-color: rgb(102, 20, 36);
+    margin: 10%;
+    margin-top: 5%;
+    margin-bottom: 30%;
+    padding: 15px 20px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 10px;
+    cursor: text;
+    background-color: rgba(254, 199, 0, 0.849);
+    font-family: "Audiowide", sans-serif;
+    color: rgba(49, 48, 99, 0.986);
+}
+
+input[type=submit] {
+    background-color: rgba(254, 199, 0, 0.849);
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 10px;
+}
+
+input[value=Submit] {
+    font-family: "Audiowide", sans-serif;
+    color: rgba(49, 48, 99, 0.986);
+    font-size: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(49, 48, 99, 0.986);
+    color: aliceblue;
+}
+
+input[type=submit]:active {
+    background-color: rgb(102, 20, 36);
+    color: aliceblue;
+}
+
+.prompt {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.aboutLogo {
+    overflow: hidden;
+    background-color: rgb(36, 36, 36);
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;   
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.aboutLogo p {
+    padding: 15px;
+    padding-top: 0px;
+    font-size: 15px;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    width: 50%;
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .introText {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    [class*="col-"] {
+      width: 100%;
+    }
+    .navigation a {
+        font-size: 30px;
+    }
+    .intro {
+        position: relative;
+    }
+    .intro2 {position: relative;}
+    .buy {
+        left: auto;
+    }
+    .buy2 {
+        right: auto;
+    }
+    .aboutLogo p {
+        font-size: 5px;
+    }
+}
