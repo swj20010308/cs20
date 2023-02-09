@@ -90,6 +90,8 @@ img {
     display: block;
     position: relative;
     overflow: hidden;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .buy {
@@ -255,7 +257,14 @@ img.center {
     -webkit-transform: scaleX(-1);
 }
 
-
+@media only screen and (max-width: 1200px) {
+    .buy {
+        left: auto;
+    }
+    .buy2 {
+        right: auto;
+    }
+}
 
 @media only screen and (max-width: 1000px) {
     .introText {
