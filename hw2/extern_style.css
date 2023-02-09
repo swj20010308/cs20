@@ -289,4 +289,8 @@ img.center {
     .buy2 {
         right: auto;
     }
+    .saleGames {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
