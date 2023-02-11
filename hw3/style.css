@@ -1,0 +1,45 @@
+songs {
+    background-color: black;
+}
+
+song {
+    background-color: aqua;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+song, artists, title, genres, year{
+    display: block;
+}
+
+artist::before {
+    font-size: large;
+    font-weight: bold;
+    content: "Artists: ";
+}
+
+title::before {
+    font-size: large;
+    font-weight: bold;
+    content: "Title: ";
+}
+
+genres::before {
+    font-size: large;
+    font-weight: bold;
+    content: "Genres: ";
+}
+
+year::before {
+    font-size: large;
+    font-weight: bold;
+    content: "Year: ";
+}
+
+genre::after {
+    font-weight: bold;
+    content: " | ";
+}
+
+

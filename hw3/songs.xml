@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href = "style.css" ?>
+<songs>
+
+    <song>
+        <artists>
+            <artist>fripSide</artist>
+        </artists>
+        <title>
+            only my railgun
+        </title>
+        <genres>
+            <genre>anime</genre>
+        </genres>
+        <year>
+            2010
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Aimer</artist>
+        </artists>
+        <title>
+            Brave Shine
+        </title>
+        <genres>
+            <genre>anime</genre>
+            <genre>j-pop</genre>
+        </genres>
+        <year>
+            2015
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Kenshi Yonezu</artist>
+        </artists>
+        <title>
+            KICK BACK
+        </title>
+        <genres>
+            <genre>anime</genre>
+            <genre>j-pop</genre>
+        </genres>
+        <year>
+            2022
+        </year>
+    </song>
+    
+    <song>
+        <artists>
+            <artist>James Harris</artist>
+        </artists>
+        <title>
+            BB channel
+        </title>
+        <genres>
+            <genre>anime score</genre>
+        </genres>
+        <year>
+            2018
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Kenshi Yonezu</artist>
+        </artists>
+        <title>
+            Lemon
+        </title>
+        <genres>
+            <genre>j-pop</genre>
+        </genres>
+        <year>
+            2020
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>LiSA</artist>
+        </artists>
+        <title>
+            THIS ILLUSION
+        </title>
+        <genres>
+            <genre>j-pixie</genre>
+            <genre>anime rock</genre>
+        </genres>
+        <year>
+            2015
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Reo Uratani</artist>
+        </artists>
+        <title>
+            Spark of Blue - Zinogre
+        </title>
+        <genres>
+            <genre>japanese vgm</genre>
+        </genres>
+        <year>
+            2021
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Reo Uratani</artist>
+        </artists>
+        <title>
+            A Bewitching Dance - Mizutsune
+        </title>
+        <genres>
+            <genre>japanese vgm</genre>
+        </genres>
+        <year>
+            2021
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Zhenlan Kang</artist>
+        </artists>
+        <title>
+            Proof of a Hero - Monster Hunter : - World version (Extended edition)
+        </title>
+        <genres>
+            <genre>japanese vgm</genre>
+        </genres>
+        <year>
+            2018
+        </year>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Jeremy Soule</artist>
+        </artists>
+        <title>
+            Dragonborn
+        </title>
+        <genres>
+            <genre>video game music</genre>
+            <genre>orchestral soundtrack</genre>
+        </genres>
+        <year>
+            2013
+        </year>
+    </song>
+
+
+
+</songs>
