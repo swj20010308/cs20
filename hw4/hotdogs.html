@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Joe's Hotdogs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <ul>
+            <li> Items ordered and quantities:
+                <ul>
+                    <li id="hotdog">1</li>
+                    <li id="fries">1</li>
+                    <li id="soda">1</li>
+                </ul>
+            </li>
+            <li id="subtotal"></li>
+            <li id="discount"></li>
+            <li id="tax"></li>
+            <li id="final"></li>
+        </ul>
+
+        <script>
+            var num_hotdogs = prompt("How many hotdogs do you want?", "");
+            var num_fries = prompt("How many fries do you want?", "");
+            var num_sodas = prompt("How many sodas do you want?", "");
+
+            var subtotal = sub_total(num_hotdogs, num_fries, num_sodas);
+            var discount = special_offer(subtotal, 0.1);
+            var final = after_tax(subtotal - discount);
+            var tax = final - (subtotal - discount);
+
+
+            document.getElementById("hotdog").innerHTML = "hotdogs: " + num_hotdogs;
+            document.getElementById("fries").innerHTML = "fries: " + num_fries;
+            document.getElementById("soda").innerHTML = "soda: " + num_sodas;
+
+            document.getElementById("subtotal").innerHTML = "subtotal: " + round_to(subtotal, 2);
+
+            document.getElementById("discount").innerHTML = "discount: " + round_to(discount, 2);
+
+            document.getElementById("tax").innerHTML = "tax: " + round_to(tax, 2);
+
+            document.getElementById("final").innerHTML = "final: " + round_to(final, 2);
+
+
+            function sub_total(hotdogs, fries, sodas) {
+                return hotdogs * 4 + fries * 3.5 + sodas * 1.75;
+            }
+
+            function special_offer(before_tax, discount) {
+                if (before_tax > 20) {
+                    return before_tax * discount;
+                } else {
+                    return 0;
+                }
+            }
+
+            function after_tax (before_tax) {
+                return before_tax * 1.0625;
+            }
+
+            function round_to (num, round) {
+                let num_int;
+                let power = 1;
+
+                for (let i = 0; i < round; i++) {
+                    power = power * 10;
+                } 
+                num = num * power;
+
+                num_int = parseInt(num);
+
+                if (num - num_int >= 0.5) {
+                    num_int++;
+                }
+                
+                num_int = num_int / power
+        
+                return num_int;
+            }
+        </script>
+                
+    </body>
+</html>
