@@ -5,7 +5,11 @@
         <title>Joe's Hotdogs</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <style>
+            body {
+                font-size: large;
+            }
+        </style>
     </head>
     <body>
         <ul>
@@ -46,6 +50,7 @@
             document.getElementById("final").innerHTML = "final: " + round_to(final, 2);
 
 
+
             function sub_total(hotdogs, fries, sodas) {
                 return hotdogs * 4 + fries * 3.5 + sodas * 1.75;
             }
@@ -63,23 +68,29 @@
             }
 
             function round_to (num, round) {
-                let num_int;
-                let power = 1;
-
-                for (let i = 0; i < round; i++) {
-                    power = power * 10;
-                } 
-                num = num * power;
-
-                num_int = parseInt(num);
-
-                if (num - num_int >= 0.5) {
-                    num_int++;
+                let num_arr = num.toString().split(".");
+                if (num_arr.length < 2) {
+                    let zeros = "0";
+                    while (zeros.length < round + 1) {
+                        zeros = zeros + "0";
+                    }
+                    num_arr.push(zeros);
                 }
-                
-                num_int = num_int / power
-        
-                return num_int;
+                let decimal = num_arr[1].split("");
+                let new_decimal = new Array(round + 1);
+
+                for (let i = 0; i <= round; i++) {
+                    if (i > decimal.length - 1) {
+                        new_decimal[i] = 0;
+                    } else {
+                        new_decimal[i] = parseInt(decimal[i]);
+                    }
+                }
+                if (new_decimal[round] >= 5) {
+                    new_decimal[round - 1]++;
+                }
+                new_decimal.pop();
+                return num_arr[0] + "." + new_decimal.join("");
             }
         </script>
                 
