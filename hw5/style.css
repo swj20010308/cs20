@@ -1,0 +1,38 @@
+.row {
+    display: flex;
+    background-color: cadetblue;
+    align-items: stretch;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.game {
+    margin: 30%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: rgb(50, 50, 80);
+}
+
+.block {
+    background-color: rgb(50, 50, 80);
+    margin: 5px;
+    flex-grow: 1;
+    font-size: 30px;
+    aspect-ratio: 1/1;
+    text-align: center;
+    align-items: center;
+}
+
+.head {
+    text-align: center;
+}
+
+.prompt {
+    background-color: antiquewhite;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 40px;
+}
