@@ -67,7 +67,6 @@ function Game (dim, startPlayer) {
 
         let diag2 = new Array(0);
         let k = i;
-        console.log(k);
         while (k < this.board.length - dim) {
             k += dim - 1;
         }
@@ -153,9 +152,14 @@ function newGame (game) {
     game.displayCurrentPlayer();
 }
 
-window.onload = function () {
-    ttt.displayCurrentPlayer();
-};
-
 var startPlayer = new Player(player.X);
 var ttt = new Game(3, startPlayer);
+
+window.onload = function () {
+    ttt.displayCurrentPlayer();
+    for (i = 0; i < 9; ++i) {
+        document.getElementById('index' + i).onclick = function () {
+            ticTackToe(this.id, ttt);
+        };
+    }
+};

@@ -20,33 +20,20 @@
 
     <div class="game">
 
-        <div class="row">
-            <button class="button" id="index0" onclick="ticTackToe(this.id,ttt)">
-            </button>
-            <button class="button" id="index1" onclick="ticTackToe(this.id,ttt)">
-            </button>
-            <button class="button" id="index2" onclick="ticTackToe(this.id,ttt)">
-            </button>
-        </div>
-
-        <div class="row">
-            <button class="button" id="index3" onclick="ticTackToe(this.id,ttt)">
-            </button>
-            <button class="button" id="index4" onclick="ticTackToe(this.id,ttt)">
-            </button>
-            <button class="button" id="index5" onclick="ticTackToe(this.id,ttt)">
-            </button>
-        </div>
-
-        <div class="row">
-            <button class="button" id="index6" onclick="ticTackToe(this.id,ttt)">
-            </button>
-            <button class="button" id="index7" onclick="ticTackToe(this.id,ttt)">
-            </button>
-            <button class="button" id="index8" onclick="ticTackToe(this.id,ttt)">
-            </button>
-        </div>
-
+        <script>
+            DIM = 3;
+            for (i = 0; i < DIM; ++i) {
+                document.write("<div class='row'></div>");
+            }
+            const rows = document.getElementsByClassName("row");
+            var counter = 0;
+            for (i = 0; i < rows.length; i++) {
+                for (j = 0; j < DIM; j++) {
+                    rows[i].innerHTML += "<button class='button' id='index" + (j + counter) + "'></button>";
+                }
+                counter += DIM;
+            }
+        </script>
 
     </div> 
     <div class="new_game">
