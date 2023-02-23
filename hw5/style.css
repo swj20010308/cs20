@@ -15,24 +15,37 @@
     background-color: rgb(50, 50, 80);
 }
 
-.block {
+.button {
     background-color: rgb(50, 50, 80);
     margin: 5px;
-    flex-grow: 1;
-    font-size: 30px;
-    aspect-ratio: 1/1;
+    flex: 1;
+    font-size: 70px;
     text-align: center;
     align-items: center;
+    aspect-ratio: 1/1;
+    text-align: center;
+    color: white;
 }
 
 .head {
     text-align: center;
 }
 
-.prompt {
+#prompt {
     background-color: antiquewhite;
     text-align: center;
     margin-left: 30%;
     margin-right: 30%;
     font-size: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+    #prompt {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .game {
+        margin: 5%;
+        margin-top: 2%;
+    }
 }
