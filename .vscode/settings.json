@@ -21,7 +21,7 @@
 	},
     "[javascript]": {
 		"editor.formatOnSave": true,
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "numso.prettier-standard-vscode"
 	},
 	"rewrap.wrappingColumn": 80,
 	"rewrap.autoWrap.enabled": false,

@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="tic-tac-toe.js"></script>
-        <meta charset="utf-8">
-        <title>Tic Tac Toe</title>
-        <meta name="description" content="tic-tac-tow">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
+<head>
+    <script src="tic-tac-toe.js"></script>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <meta name="description" content="tic-tac-tow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <h1 class="head"> Tic Tac Toe </h1>
+<body>
 
-        <div id="prompt">
-            <p>Current Player</p>
+    <h1 class="head"> Tic Tac Toe </h1>
+
+    <div id="prompt">
+        <p>Current Player</p>
+    </div>
+
+    <div class="game">
+
+        <div class="row">
+            <button class="button" id="index0" onclick="ticTackToe(this.id,ttt)">
+            </button>
+            <button class="button" id="index1" onclick="ticTackToe(this.id,ttt)">
+            </button>
+            <button class="button" id="index2" onclick="ticTackToe(this.id,ttt)">
+            </button>
         </div>
 
-        <div class="game">
+        <div class="row">
+            <button class="button" id="index3" onclick="ticTackToe(this.id,ttt)">
+            </button>
+            <button class="button" id="index4" onclick="ticTackToe(this.id,ttt)">
+            </button>
+            <button class="button" id="index5" onclick="ticTackToe(this.id,ttt)">
+            </button>
+        </div>
 
-            <div class="row">
-                <button class="button" id="index0" onclick="ticTackToe(this.id,ttt)">
-                </button>
-                <button class="button" id="index1" onclick="ticTackToe(this.id,ttt)">
-                </button>
-                <button class="button" id="index2" onclick="ticTackToe(this.id,ttt)">
-                </button>
-            </div>
-
-            <div class="row">
-                <button class="button" id="index3" onclick="ticTackToe(this.id,ttt)">
-                </button>
-                <button class="button" id="index4" onclick="ticTackToe(this.id,ttt)">
-                </button>
-                <button class="button" id="index5" onclick="ticTackToe(this.id,ttt)">
-                </button>
-            </div>
-
-            <div class="row">
-                <button class="button" id="index6" onclick="ticTackToe(this.id,ttt)">
-                </button>
-                <button class="button" id="index7" onclick="ticTackToe(this.id,ttt)">
-                </button>
-                <button class="button" id="index8" onclick="ticTackToe(this.id,ttt)">
-                </button>
-            </div>
-
-
+        <div class="row">
+            <button class="button" id="index6" onclick="ticTackToe(this.id,ttt)">
+            </button>
+            <button class="button" id="index7" onclick="ticTackToe(this.id,ttt)">
+            </button>
+            <button class="button" id="index8" onclick="ticTackToe(this.id,ttt)">
+            </button>
         </div>
 
 
-    </body>
+    </div>
+
+
+</body>
 
 </html>
