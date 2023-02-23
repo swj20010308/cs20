@@ -13,12 +13,10 @@ function Player(name) {
     };
 
     this.move = (game, i) => {
-        if (game.isEmpty(i)) {
-            game.board[i] = this.name;
-            document.getElementById("index" + i).innerHTML = this.name;
-            document.getElementById("prompt").innerHTML =
-                "Player " + this.nextPlayer() + "'s turn:";
-        }
+        game.board[i] = this.name;
+        document.getElementById("index" + i).innerHTML = this.name;
+        document.getElementById("prompt").innerHTML =
+            "Player " + this.nextPlayer() + "'s turn:";
     };
 }
 
@@ -94,6 +92,8 @@ function Game(dim, startPlayer) {
 
 function ticTackToe(id, game) {
     let index = parseInt(id.charAt(5));
+
+    if (!game.isEmpty(index)) { return; }
 
     game.currentPlayer.move(game, index);
 
