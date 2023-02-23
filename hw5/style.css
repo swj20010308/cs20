@@ -8,6 +8,7 @@
 
 .game {
     margin: 30%;
+    margin-bottom: 1%;
     margin-top: 2%;
     display: flex;
     flex-direction: column;
@@ -25,6 +26,7 @@
     aspect-ratio: 1/1;
     text-align: center;
     color: white;
+    border: 0;
 }
 
 .head {
@@ -37,6 +39,20 @@
     margin-left: 30%;
     margin-right: 30%;
     font-size: 40px;
+}
+
+.clean {
+    background-color: antiquewhite;
+    border: 0;
+    font-size: 30px;
+}
+
+.new_game {
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 900px) {

@@ -62,7 +62,6 @@ function Game (dim, startPlayer) {
             while (j >= 0) {
                 diag1.push(this.board[j])
                 j -= dim + 1
-                console.log(j)
             }
         }
 
@@ -71,13 +70,11 @@ function Game (dim, startPlayer) {
         console.log(k)
         while (k < this.board.length - dim) {
             k += dim - 1
-            console.log(k)
         }
         if (k == this.board.length - dim) {
             while (k >= dim - 1) {
                 diag2.push(this.board[k])
                 k -= dim - 1
-                console.log(k)
             }
         }
 
@@ -149,6 +146,11 @@ function ticTackToe (id, game) {
     } else {
         game.currentPlayer = new Player(game.currentPlayer.nextPlayer())
     }
+}
+
+function newGame (game) {
+    game.clean()
+    game.displayCurrentPlayer()
 }
 
 window.onload = function () {
