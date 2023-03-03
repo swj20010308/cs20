@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>
+<script src="JD.js"></script>
+<link rel="stylesheet" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jade Delight</title>
+</head>
+
+<body>
+<script>
+
+function MenuItem(name, cost)
+{
+	this.name = name;
+	this.cost=cost;
+}
+
+menuItems = new Array(
+	new MenuItem("Chicken Chop Suey", 5.5),
+	new MenuItem("Sweet and Sour Pork", 7.25),
+	new MenuItem("Shrimp Lo Mein", 6.80),
+	new MenuItem("Moo Shi Chicken", 9.50),
+	new MenuItem("Fried Rice", 3.25)
+);
+
+function makeSelect(name, minRange, maxRange)
+{
+	var t= "";
+	t = "<select name='" + name + "' size='1'>";
+	for (j=minRange; j<=maxRange; j++)
+	   t += "<option>" + j + "</option>";
+	t+= "</select>"; 
+	return t;
+}
+
+function td(content, className="")
+{
+	return "<td class = '" + className + "'>" + content + "</td>";
+}
+	
+</script>
+
+<h1>Jade Delight</h1>
+<form>
+
+<p class="userInfo"><label>First Name:</label> <input type="text"  name='fname' /></p>
+<p class="userInfo"><label>Last Name*:</label>  <input type="text"  name='lname' /></p>
+<p class="userInfo address"><label>Street*:</label> <input type="text" name='street' /></p>
+<p class="userInfo address"><label>City*:</label> <input type="text" name='city' /></p>
+<p class="userInfo"><label>Phone*:</label> <input type="text"  name='phone' /></p>
+<p> 
+	<input type="radio"  name="p_or_d" value = "pickup" checked="checked"/>Pickup  
+	<input type="radio"  name='p_or_d' value = 'delivery'/>
+	Delivery
+</p>
+<table border="0" cellpadding="3">
+  <tr>
+    <th>Select Item</th>
+    <th>Item Name</th>
+    <th>Cost Each</th>
+    <th>Total Cost</th>
+  </tr>
+<script>
+
+  var s = "";
+  for (i=0; i< menuItems.length; i++)
+  {
+	  s += "<tr>";
+	  s += td(makeSelect("quan" + i, 0, 10),"selectQuantity");
+	  s += td(menuItems[i].name, "itemName");
+	  s += td("$" +menuItems[i].cost.toFixed(2), "cost");
+	  s += td("$<input type='text' name='cost'/>", "totalCost");
+	  s+= "</tr>";
+  }
+  document.writeln(s);
+</script>
+</table>
+<p class="subtotal totalSection"><label>Subtotal</label>: 
+   $ <input type="text"  name='subtotal' id="subtotal" />
+</p>
+<p class="tax totalSection"><label>Mass tax 6.25%:</label>
+  $ <input type="text"  name='tax' id="tax" />
+</p>
+<p class="total totalSection"><label>Total:</label> $ <input type="text"  name='total' id="total" />
+</p>
+
+<input type = "button" value = "Submit Order" />
+
+<script>
+
+	var lname = document.querySelector('[name = "lname"]');
+	var city = document.querySelector('[name = "city"]');
+	var street = document.querySelector('[name = "street"]');
+	var phone = document.querySelector('[name = "phone"]');
+	var total = document.getElementById("total");
+	var isDelivery = false;
+
+	// toggle address info on delivery
+	const addressInfo = document.getElementsByClassName("address");
+	toggleAddress(addressInfo, "none");
+	 
+	document.querySelector('[value = "pickup"]').addEventListener("click", () => {toggleAddress(addressInfo, "none"); isDelivery = false});
+	document.querySelector('[value = "delivery"]').addEventListener("click", () => {toggleAddress(addressInfo, ""); isDelivery = true});
+
+	const costList = document.getElementsByName("cost");
+	const itemList = document.getElementsByClassName("itemName");
+	var empty = 0;
+	document.getElementById("subtotal").value = empty.toFixed(2);
+	document.getElementById("tax").value = empty.toFixed(2);
+	document.getElementById("total").value = empty.toFixed(2);
+
+	for (let i = 0; i < menuItems.length; i++) {
+		// initialize each cost to 0
+		costList[i].value = empty.toFixed(2);
+		// change cost when select 
+		document.querySelector('[name = "quan' + i + '"]').addEventListener("change", (e) => {
+			costList[i].value = (parseInt(e.target.options[e.target.selectedIndex].innerHTML) * menuItems[i].cost).toFixed(2);
+			// update subtotal
+			document.getElementById("subtotal").value = empty;
+			for (let j = 0; j < costList.length; j++) {
+				document.getElementById("subtotal").value = (parseFloat(document.getElementById("subtotal").value) + parseFloat(costList[j].value)).toFixed(2);
+			}
+			// update tax and final
+			document.getElementById("tax").value = (parseFloat(document.getElementById("subtotal").value) * 0.0625).toFixed(2);
+			document.getElementById("total").value = (parseFloat(document.getElementById("subtotal").value) * 1.0625).toFixed(2);
+		})
+	}
+
+	document.querySelector('[value = "Submit Order"]').addEventListener("click", () => {
+		if (valid(lname, street, city, phone, total, isDelivery)) {
+			alert("Thank you for your order");
+			var newWindow = window.open("", "", "width = 1280, height = 720");
+			newWindow.document.write('<!DOCTYPE html><html><head><title>Order status</title><meta name="viewport" content="width=device-width, initial-scale=1"></head><body>');
+
+			if (isDelivery) {
+				let date = new Date();
+				newWindow.document.write("<h3>Your order is on the way!</h3>");
+				date.setMinutes(date.getMinutes() + 45);
+				if (date.getMinutes() < 10) {
+					newWindow.document.write("<p><b>Estimated delivery:      </b>" + date.getHours() + ":0" + date.getMinutes() + "</p>");
+				} else {
+					newWindow.document.write("<p><b>Estimated delivery:      </b>" + date.getHours() + ":" + date.getMinutes() + "</p>");
+				}
+				writeNewWindow(newWindow, menuItems, costList);
+			} else {
+				let date = new Date();
+				date.setMinutes(date.getMinutes() + 15);
+				if (date.getMinutes() < 10) {
+					newWindow.document.write("<p><b>Available for pick up at:      </b>" + date.getHours() + ":0" + date.getMinutes() + "</p>");
+				} else {
+					newWindow.document.write("<p><b>Available for pick up at:      </b>" + date.getHours() + ":" + date.getMinutes() + "</p>");
+				}
+				writeNewWindow(newWindow, menuItems, costList);
+			}
+			newWindow.document.write('</body></html>');
+		}
+	})
+
+</script>
+
+</form>
+</body>
+</html>
