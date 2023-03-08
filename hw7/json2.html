@@ -2,19 +2,51 @@
 
 <html>
     <head>
+        <style>
+            tr {
+                font-size: 30px;
+            }
+            .elem {
+                font-style: normal;
+                font-size: 15px;
+            }
+            table,th {
+                border: 1px solid black;
+            }
+        </style>
+        <script src="functions.js"></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
+        <title>song list</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
     <body>
+        <table style="width: 100%" id="table"></table>
+
+        
+
         <script>
+            var genres = new Set();
             $.get("https://swj20010308.github.io/cs20/hw7/jsonSongList.json",
                 function (data) {
-                    document.write(JSON.stringify(data));
+                    let songs = data["songs"];
+                    let table = document.getElementById("table");
+                    table.innerHTML += 
+                        "<tr><th style='width:25%'> Title </th> <th style='width:25%'> Artists </th> <th style='width:25%'> Genres </th> <th style='width:25%'> Release </th> </tr>"
+                    for (let i = 0; i < songs.length; i++) {
+                        table.innerHTML += "<tr><th class='elem'>" + 
+                                            rmHeadTail(str(songs[i]["title"])) + 
+                                            "</th><th class='elem'>" + 
+                                            writeArr(songs[i]["artists"]) + 
+                                            "</th><th class='elem'>" + 
+                                            writeArr(songs[i]["genres"]) + 
+                                            "</th><th class='elem'>" + 
+                                            str(songs[i]["release"]) + 
+                                            "</th></tr>";
+                        genres = addToSet(songs[i]["genres"], genres);
+                    }
+                    genres.forEach(e => {console.log(e);});
                 }
             );
         </script>
