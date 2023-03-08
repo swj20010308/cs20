@@ -6,7 +6,7 @@
             tr {
                 font-size: 30px;
             }
-            .elem {
+            tr [id *="elem"] {
                 font-style: normal;
                 font-size: 15px;
             }
@@ -22,31 +22,63 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
     <body>
+        <p id="raw"></p>
         <table style="width: 100%" id="table"></table>
+
+        <form>
+            <label for="Filter"> Filter </label>
+            <select name="filter" id="Filter">
+                <option selected="selected">all</option>
+            </select>
+        </form>
 
         
 
         <script>
+
             var genres = new Set();
             $.get("https://swj20010308.github.io/cs20/hw7/jsonSongList.json",
                 function (data) {
+                    document.getElementById("raw").innerHTML = str(data);
                     let songs = data["songs"];
                     let table = document.getElementById("table");
                     table.innerHTML += 
                         "<tr><th style='width:25%'> Title </th> <th style='width:25%'> Artists </th> <th style='width:25%'> Genres </th> <th style='width:25%'> Release </th> </tr>"
                     for (let i = 0; i < songs.length; i++) {
-                        table.innerHTML += "<tr><th class='elem'>" + 
+                        table.innerHTML += "<tr><th id='elem" + i + " title'>" + 
                                             rmHeadTail(str(songs[i]["title"])) + 
-                                            "</th><th class='elem'>" + 
+                                            "</th><th id='elem" + i + " artists'>" + 
                                             writeArr(songs[i]["artists"]) + 
-                                            "</th><th class='elem'>" + 
+                                            "</th><th id='elem" + i + " genres'>" + 
                                             writeArr(songs[i]["genres"]) + 
-                                            "</th><th class='elem'>" + 
+                                            "</th><th id='elem" + i + " release'>" + 
                                             str(songs[i]["release"]) + 
                                             "</th></tr>";
                         genres = addToSet(songs[i]["genres"], genres);
                     }
-                    genres.forEach(e => {console.log(e);});
+                    genres.forEach(e => {
+                        document.getElementById("Filter").innerHTML += "<option>" + e + "</option>";
+                    });
+                    document.getElementById("Filter").addEventListener("change", e => {
+                        for (let i = 0; i < songs.length; i++) {
+                            let songGenres = document.getElementById(("elem" + i + " genres"));
+                            let gArr = songGenres.innerHTML.split(", ");
+                            let op = e.target.options[e.target.selectedIndex];
+                            if (inSet(gArr, op)) {
+                                document.getElementById(("elem" + i + " title")).style.display = "";
+                                document.getElementById(("elem" + i + " artists")).style.display = "";
+                                document.getElementById(("elem" + i + " genres")).style.display = "";
+                                document.getElementById(("elem" + i + " release")).style.display = "";
+                            } else {
+                                document.getElementById(("elem" + i + " title")).style.display = "none";
+                                document.getElementById(("elem" + i + " artists")).style.display = "none";
+                                document.getElementById(("elem" + i + " genres")).style.display = "none";
+                                document.getElementById(("elem" + i + " release")).style.display = "none";
+                            }
+                        }
+                    });
+                    
+                    
                 }
             );
         </script>

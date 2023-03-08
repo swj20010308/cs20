@@ -6,12 +6,17 @@ function str (obj) {
     return JSON.stringify(obj);
 }
 
-function writeArr (objArr) {
-    let result = '';
+function objToArr (objArr) {
     let s = str(objArr);
     let sArr = rmHeadTail(s).split(',');
+    return sArr.map(rmHeadTail);
+}
+
+function writeArr (objArr) {
+    let result = '';
+    let sArr = objToArr(objArr);
     for (let i = 0; i < sArr.length; i++) {
-        result += rmHeadTail(sArr[i]);
+        result += sArr[i];
         if (i < sArr.length - 1) {
             result += ', ';
         }
@@ -20,10 +25,18 @@ function writeArr (objArr) {
 }
 
 function addToSet (objArr, set) {
-    let s = str(objArr);
-    let sArr = rmHeadTail(s).split(',');
+    let sArr = objToArr(objArr);
     sArr.forEach(e => {
-        set.add(rmHeadTail(e));
+        set.add(e);
     });
     return set;
+}
+
+function inSet (array, option) {
+    for (let i = 0; i < array.length; i++) {
+        if (option.innerHTML == array[i] || option.innerHTML == 'all') {
+            return true;
+        }
+    }
+    return false;
 }
