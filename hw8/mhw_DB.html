@@ -51,7 +51,7 @@
                 <li><code>skills</code></li>
                 <li><code>weapons</code></li>
             </ul>
-            <p>Assuming that every command here represents a class of in-game objects, the query will return all objects in that class. If user wants the query to be more specific, they can specify the item id, which is unique for every element in the same class. For example: <code>https://mhw-db.com/weapons/1</code> returns the weapon <code>Buster Sword 1</code> with type <code>great-sword</code>.</p>
+            <p>Assuming that every command here represents a class of in-game objects, the query will return all objects in that class. If user wants the query to be more specific, they can specify the item id (stored in each object), which is unique for every element in the same class. For example: <code>https://mhw-db.com/weapons/1</code> returns the weapon <code>Buster Sword 1</code> with type <code>great-sword</code>.</p>
             <p>For full description of the API, see <span><a href="https://docs.mhw-db.com/">mhw-db</a></span>.</p>
         </div>
         <div id="citation">
@@ -67,7 +67,7 @@
             <h1>Applications</h1>
             <p>Obviously this API is only useful for Monster Hunter World (unless some Capcom developer decides to refer back to older games when developing the newest title. But they probably have their own database, possibly using another api).</p>
             <p>Inside the game, however, this api is a life saver. Players can search for information that are not presented in the in game manual. Like <code>motion-values</code> which in general dictates how often a move set should be utitlized in gameplay (unless you like low damage numbers in which case you are a weirdo). <code>weapons</code> allows players to see all weapons in the game even before they unlock them. So they can start grinding towards their dream weapon immediatly, using loot drop information found in <code>monsters</code> and quest rewards found in <code>events</code>.</p>
-            <p>As mentioned above, every item in the game has a unique id. Usually this correspond with how inventory is stored. If you have a way to access the memory location of your inventory, you can add items using their ids even if you have never acquire them. This could break your save, you have been warned.</p>
+            <p>As mentioned above, every item in the game has a unique id. Usually this correspond with how inventory is stored. If you have a way to access the memory location of your inventory, you can add items using their ids even if you never acquired them. This could break your save, you have been warned.</p>
         </div>
     </body>
 </html>
