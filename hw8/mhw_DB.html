@@ -2,20 +2,72 @@
 
 <html>
     <head>
-        <title>Monster Hunter World Database</title>
         <style>
+            .skillName {
+                align-self: center;
+            }
             tr {
                 font-size: 30px;
+            }
+            tr [class *="elem"] {
+                font-style: normal;
+                font-size: 15px;
             }
             table,th {
                 border: 1px solid black;
             }
-            tr [class *="elem"] {
-                    font-style: normal;
-                    font-size: 15px;
+            code {
+                background-color: antiquewhite;
+                border-radius: 5px;
+            }
+            #discription, #citation, #usedOptions, #application{
+                width: 50%;
+                font-size: 15px;
             }
         </style>
         <script src="functions.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>mhw</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
-    <body onload="getSkills()"></body>
+    <body onload="getSkills()">
+        <div id="method"></div> <br>
+        <div id="discription"> 
+            <h1>Monster Hunter World API demo</h1>
+            <p>This is an API for the Monster Hunter World video game. It is basically an extension of the in-game hunter manual. Users can look up just about anything that's related to the game, including armor, skills, weapon motion value, decorations, and monster information. For example, <code>https://mhw-db.com/armor/sets</code> request will return all the armor sets in the game, with relavent information such as defence stats, decoration slots and skills.</p>
+            <p>Here are some of the available commands, useage should be self-explanatory </p>
+            <ul style="list-style-type: none;">
+                <li><code>ailments</code></li>
+                <li><code>armor</code></li>
+                <li><code>armor/sets</code></li>
+                <li><code>charms</code></li>
+                <li><code>decorations</code></li>
+                <li><code>events</code></li>
+                <li><code>items</code></li>
+                <li><code>monsters</code></li>
+                <li><code>motion-values</code></li>
+                <li><code>skills</code></li>
+                <li><code>weapons</code></li>
+            </ul>
+            <p>Assuming that every command here represents a class of in-game objects, the query will return all objects in that class. If user wants the query to be more specific, they can specify the item id, which is unique for every element in the same class. For example: <code>https://mhw-db.com/weapons/1</code> returns the weapon <code>Buster Sword 1</code> with type <code>great-sword</code>.</p>
+            <p>For full description of the API, see <span><a href="https://docs.mhw-db.com/">mhw-db</a></span>.</p>
+        </div>
+        <div id="citation">
+            <h1>Citations</h1>
+            <a href="https://mhw-db.com">https://mhw-db.com</a>
+        </div>
+        <div id="usedOptions">
+            <h1>Options I used</h1>
+            <p>In this assignment, I used the query API methods given by the website to request for a skill by name <code>https://mhw-db.com/skills?q={"name":"Critical Eye"}</code>, which returns the unique skill json object <code>Critical Eye</code>. For simplicity, only part of that information is displayed.</p>
+            <p>This method should be applicable to every class mentioned above.</p>
+        </div>
+        <div id="application">
+            <h1>Applications</h1>
+            <p>Obviously this API is only useful for Monster Hunter World (unless some Capcom developer decides to refer back to older games when developing the newest title. But they probably have their own database, possibly using another api).</p>
+            <p>Inside the game, however, this api is a life saver. Players can search for information that are not presented in the in game manual. Like <code>motion-values</code> which in general dictates how often a move set should be utitlized in gameplay (unless you like low damage numbers in which case you are a weirdo). <code>weapons</code> allows players to see all weapons in the game even before they unlock them. So they can start grinding towards their dream weapon immediatly, using loot drop information found in <code>monsters</code> and quest rewards found in <code>events</code>.</p>
+            <p>As mentioned above, every item in the game has a unique id. Usually this correspond with how inventory is stored. If you have a way to access the memory location of your inventory, you can add items using their ids even if you have never acquire them. This could break your save, you have been warned.</p>
+        </div>
+    </body>
 </html>
